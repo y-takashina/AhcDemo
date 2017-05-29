@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.26430.6
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AhcTest", "AhcTest.csproj", "{4AE6D385-47F0-4B66-8F49-4F47303E5D40}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AhcDemo", "AhcDemo.csproj", "{4AE6D385-47F0-4B66-8F49-4F47303E5D40}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
