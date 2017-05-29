@@ -15,7 +15,7 @@ namespace AhcDemo
 
         public static Cluster AggregativeHierarchicalClustering(IEnumerable<int> data)
         {
-            var clusters = data.Select(v => (Cluster) new Single(v)).ToList();
+            var clusters = data.Select(v => new Single(v)).Cast<Cluster>().ToList();
             while (clusters.Count != 1)
             {
                 var min = double.MaxValue;
@@ -28,7 +28,8 @@ namespace AhcDemo
                         if (d < min)
                         {
                             min = d;
-                            (c1, c2) = (clusters[i], clusters[j]);
+                            c1 = clusters[i];
+                            c2 = clusters[j];
                         }
                     }
                 }

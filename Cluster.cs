@@ -26,9 +26,7 @@ namespace AhcDemo
             return left < right ? left : right;
         }
 
-        public override string ToString() => "Single(" + Value + ")";
-
-        public override void Print(string indent = "") => Console.WriteLine(indent + this);
+        public override void Print(string indent = "") => Console.WriteLine(indent + Value);
     }
 
     public class Couple : Cluster
