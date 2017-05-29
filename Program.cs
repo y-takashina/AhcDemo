@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 
 namespace AhcDemo
@@ -14,12 +15,11 @@ namespace AhcDemo
 
         public static Cluster AggregativeHierarchicalClustering(IEnumerable<int> data)
         {
-            var clusters = data.Select(value => (Cluster) new Single(value)).ToList();
+            var clusters = data.Select(v => (Cluster) new Single(v)).ToList();
             while (clusters.Count != 1)
             {
                 var min = double.MaxValue;
-                var c1 = clusters.First();
-                var c2 = clusters.Last();
+                Cluster c1 = null, c2 = null;
                 for (var i = 0; i < clusters.Count; i++)
                 {
                     for (var j = i + 1; j < clusters.Count; j++)
@@ -28,8 +28,7 @@ namespace AhcDemo
                         if (d < min)
                         {
                             min = d;
-                            c1 = clusters[i];
-                            c2 = clusters[j];
+                            (c1, c2) = (clusters[i], clusters[j]);
                         }
                     }
                 }
@@ -37,7 +36,7 @@ namespace AhcDemo
                 clusters.Remove(c1);
                 clusters.Remove(c2);
             }
-            return clusters.First();
+            return clusters.Single();
         }
     }
 }
